@@ -1,3 +1,16 @@
+// ==UserScript==
+// @name        Twitch Sidebar Hover Script
+// @namespace   Twitch Sidebar Hover Script
+// @match       https://www.twitch.tv/*
+// @author      ShAd
+// @grant       none
+// @version     1.0
+// @license MIT
+// @description 11/06/2025 16:41:07
+// @updateURL   https://github.com/ShAd-x/twitch-sidebar-hover-script/blob/main/script.js
+// @downloadURL https://github.com/ShAd-x/twitch-sidebar-hover-script/blob/main/script.js
+// ==/UserScript==
+
 (function () {
     'use strict';
 
