@@ -27,7 +27,7 @@
         document.head.appendChild(style);
     }
 
-    // Run once elements are loaded in the DOM
+    // Wait until sidebar and toggle button are loaded
     const observer = new MutationObserver(() => {
         const sideNav = document.querySelector('.side-nav');
         const toggleBtn = document.querySelector("button[data-a-target='side-nav-arrow']");
@@ -35,27 +35,20 @@
 
         observer.disconnect(); // Stop observing once elements are found
 
-        let isAnimating = false;
-
         // Expand on hover
         sideNav.addEventListener('mouseenter', () => {
-            if (sideNav.classList.contains('side-nav--collapsed') && !isAnimating) {
-                isAnimating = true;
+            if (sideNav.classList.contains('side-nav--collapsed')) {
                 toggleBtn.click();
-                setTimeout(() => isAnimating = false, 200);
             }
         });
 
         // Collapse on mouse leave
         sideNav.addEventListener('mouseleave', () => {
-            if (sideNav.classList.contains('side-nav--expanded') && !isAnimating) {
-                isAnimating = true;
+            if (sideNav.classList.contains('side-nav--expanded')) {
                 toggleBtn.click();
-                setTimeout(() => isAnimating = false, 200);
             }
         });
     });
 
-    // Observe the body for dynamic Twitch DOM load
     observer.observe(document.body, { childList: true, subtree: true });
 })();
